@@ -13,10 +13,12 @@ class Occurrence:
     _power_feeder: str
     _power_transformer: str
     _id: str
+    _details: str
     limit = 51
 
     def __init__(self, row: Series) -> None:
         self._id = row.OCORRENCIA
+        self._details = row.CAUSA
         self._uc = row.CONTA
         self._name = self._resume_name(row.NOME)
         self._locality = row.LOCALIDADE
@@ -28,13 +30,15 @@ class Occurrence:
         self._power_feeder = row.ALIMENTADOR
         self._power_transformer = row.TRANSFORMADOR
         
+        
     def __str__(self) -> str:
         values = (
-            f'UC: {self._uc}',f'Local: {self._locality}',
-            f"Nome: {self._name}", f"Equipamento: {self._equipment}",
-            f"Data: {self._date}", f"Regional: {self._reg}",
-            f"Município: {self._city}", f"Subestação: {self._substation}",
-            f"Alimentador: {self._power_feeder}", f"Transformador: {self._power_transformer}"
+            f"Ocorrência: {self._id}", f'UC: {self._uc}',
+            f'Local: {self._locality}',f"Nome: {self._name}",
+            f"Equipamento: {self._equipment}",f"Data: {self._date}",
+            f"Regional: {self._reg}",f"Município: {self._city}", 
+            f"Subestação: {self._substation}", f"Alimentador: {self._power_feeder}",
+            f"Transformador: {self._power_transformer}", f"Motivo: {self._details}"
             )
         return "\n".join(values)
 
