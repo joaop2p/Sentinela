@@ -25,7 +25,7 @@ class Launcher(Data):
         if self.getData.empty:
             self.logger.info(LoggingMessages.EMPTY_DATAFRAME)
             return
-        message = Message.getMessage(self.getData[:10])
+        message = Message.getMessage(self.getData)
         self.actions = Actions()
         self.actions.start_WhatsApp()
         self.actions.safe_search(self._group)
