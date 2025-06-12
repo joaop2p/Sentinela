@@ -1,0 +1,6 @@
+.env
+driver_cache
+__pycache__
+gitignore
+log
+.vscode
