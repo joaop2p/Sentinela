@@ -1,7 +1,6 @@
 import logging
 from time import time
 from typing import List
-from os.path import realpath
 from typing_extensions import Literal
 from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.common.print_page_options import PrintOptions
