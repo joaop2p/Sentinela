@@ -30,13 +30,12 @@ class Occurrence:
         self._power_feeder = row.ALIMENTADOR
         self._power_transformer = row.TRANSFORMADOR
         
-        
     def __str__(self) -> str:
         values = (
             f"Ocorrência: {self._id}", f'UC: {self._uc}',
-            f'Local: {self._locality}',f"Nome: {self._name}",
-            f"Equipamento: {self._equipment}",f"Data: {self._date}",
-            f"Regional: {self._reg}",f"Município: {self._city}", 
+            f"Nome: {self._name}",f"Data: {self._date}",
+            f"Regional: {self._reg}",f'Local: {self._locality}',
+            f"Município: {self._city}",f"Equipamento: {self._equipment}",
             f"Subestação: {self._substation}", f"Alimentador: {self._power_feeder}",
             f"Transformador: {self._power_transformer}", f"Motivo: {self._details}"
             )

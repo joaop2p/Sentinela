@@ -12,7 +12,7 @@ class Message:
         occurrences = "\n"
         lines = []
         for _, row in df.iterrows():
-            lines.append(("-"*Message.limit))
+            lines.append(("-"*(Message.limit+1)))
             occurrence = Occurrence(row)
             lines.append(str(occurrence))
         occurrences = occurrences.join(lines)

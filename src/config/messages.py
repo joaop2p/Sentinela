@@ -1,6 +1,7 @@
 class ErrorsMessages:
     NO_COLUMNS_IN_DATA = "Colunas necessárias ausentes."
     INVALID_PATH_ERR = "Diretório inválido: {path}."
+    DRIVER_CACHE_INVALID = "O caminho do cache '{path}' para o WebDriver não é válido."
 
 class LoggingMessages:
     EMPTY_DATAFRAME = "Sem ocorrências no momento."

@@ -16,8 +16,8 @@ class Data:
             "CONTA", "LOCALIDADE", "NOME", "DEFEITO_FALHA", "DH_INICIAL_INT")
         return not any(essential not in columns for essential in essentials)
 
-    def read_file(self, path:str):
-        if not isfile(path):
+    def read_file(self, path:str|None):
+        if path is None or not isfile(path):
             raise DataException(ErrorsMessages.INVALID_PATH_ERR.format(path=path))
         try:
             temp_df = read_csv(path, sep=";")

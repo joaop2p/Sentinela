@@ -20,7 +20,7 @@ class Launcher(Data):
         else:
             self._group = "Sentinela"
 
-    def wppProcess(self, base_path: str) -> None:
+    def wppProcess(self, base_path: str | None) -> None:
         self.read_file(base_path)
         if self.getData.empty:
             self.logger.info(LoggingMessages.EMPTY_DATAFRAME)
