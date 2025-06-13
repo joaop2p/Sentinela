@@ -7,7 +7,10 @@ from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.common.print_page_options import PrintOptions
 from selenium.common.exceptions import NoSuchElementException as NSEE
 from selenium.webdriver.remote.webelement import WebElement
-from ...config.messages import LoggingMessages
+from os.path import exists
+from ..exceptions.driverExceptions import DriverException
+from ...config.config import Config
+from ...config.messages import ErrorsMessages, LoggingMessages
 from ...model.element import Element
 
 class Driver:
@@ -40,16 +43,15 @@ class Driver:
         return option
 
     def _start(self) -> None:
-        cache_path = "./driver_cache/sentinela_data"
-        
+        if Config.CACHE_DRIVER_PATH is None or not exists(Config.CACHE_DRIVER_PATH):
+            raise DriverException(ErrorsMessages.DRIVER_CACHE_INVALID.format(path=Config.CACHE_DRIVER_PATH))
         options = self._setOptionsDriver(
-                f"--user-data-dir={realpath(cache_path)}",
+                f"--user-data-dir={Config.CACHE_DRIVER_PATH}",
             )
         self._driver = Chrome(
             options=options
             )
         self._printOptions = self._setOptionsPrint()
-
         
     def getPrintOptions(self) -> PrintOptions:
         return self._printOptions
