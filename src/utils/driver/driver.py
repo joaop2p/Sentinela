@@ -15,6 +15,7 @@ from ...model.element import Element
 class Driver:
     _driver: Chrome
     _printOptions: PrintOptions
+    _hadlass: bool = False
 
     def __version_(self) -> Literal['1.3']:
         return "1.3"
@@ -22,8 +23,9 @@ class Driver:
     def __str__(self) -> str:
         return f"WebDriver Chrome {self.__version_()}"
     
-    def __init__(self) -> None:
+    def __init__(self, hadless: bool = True) -> None:
         self._start()
+        self._hadlass = hadless
         self.logger = logging.getLogger(self.__str__())
         self.logger.info(LoggingMessages.START_APPLICATION)
 
@@ -42,11 +44,11 @@ class Driver:
         return option
 
     def _start(self) -> None:
-        if Config.CACHE_DRIVER_PATH is None or not exists(Config.CACHE_DRIVER_PATH):
-            raise DriverException(ErrorsMessages.DRIVER_CACHE_INVALID.format(path=Config.CACHE_DRIVER_PATH))
         options = self._setOptionsDriver(
-                f"--user-data-dir={Config.CACHE_DRIVER_PATH}",
+                f"--user-data-dir={Config.CACHE_DRIVER_PATH}"
             )
+        if self._hadlass:
+            options.append("--headless")
         self._driver = Chrome(
             options=options
             )

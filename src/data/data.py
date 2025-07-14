@@ -34,6 +34,3 @@ class Data:
     @property
     def getData(self) -> DataFrame:
         return self._df
-
-    
-        
