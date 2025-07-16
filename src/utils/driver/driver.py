@@ -15,9 +15,9 @@ from ...model.element import Element
 class Driver:
     _driver: Chrome
     _printOptions: PrintOptions
-    _hadlass: bool = False
+    _hadlass: bool = True   
 
-    def __version_(self) -> Literal['1.3']:
+    def __version_(self) -> Literal['1.5']:
         return "1.3"
 
     def __str__(self) -> str:
@@ -48,7 +48,7 @@ class Driver:
                 f"--user-data-dir={Config.CACHE_DRIVER_PATH}"
             )
         if self._hadlass:
-            options.append("--headless")
+            options.add_argument("--headless")
         self._driver = Chrome(
             options=options
             )
