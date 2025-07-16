@@ -32,12 +32,13 @@ class Occurrence:
         
     def __str__(self) -> str:
         values = (
-            f"Ocorrência: {self._id}", f'UC: {self._uc}',
-            f"Nome: {self._name}",f"Data: {self._date}",
-            f"Regional: {self._reg}",f'Local: {self._locality}',
-            f"Município: {self._city}",f"Equipamento: {self._equipment}",
-            f"Subestação: {self._substation}", f"Alimentador: {self._power_feeder}",
-            f"Transformador: {self._power_transformer}", f"Motivo: {self._details}"
+            f"*Ocorrência*: {self._id}", f'* *UC*: {self._uc}',
+            f"*Nome*: {self._name}",f"*Data*: {self._date}",
+            f"*Regional*: {self._reg}",f'*Local*: {self._locality}',
+            f"*Município*: {self._city}",f"*Equipamento*: {self._equipment}",
+            f"*Subestação*: {self._substation}", f"*Alimentador*: {self._power_feeder}",
+            f"*Transformador*: {self._power_transformer}", f"*Motivo*: {self._details}",
+            ""
             )
         return "\n".join(values)
 

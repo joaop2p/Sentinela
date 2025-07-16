@@ -15,7 +15,7 @@ class Sentinela(Log):
                 ))
     
     def main(self) -> None:
-        launcher = Launcher()
+        launcher = Launcher(False)
         code = Config.SUCCESS_CODE
         try:
             launcher.wppProcess(Config.DATA_FILE)

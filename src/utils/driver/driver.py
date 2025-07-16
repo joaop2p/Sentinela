@@ -15,7 +15,7 @@ from ...model.element import Element
 class Driver:
     _driver: Chrome
     _printOptions: PrintOptions
-    _hadlass: bool = True   
+    _hadlass: bool = False   
 
     def __version_(self) -> Literal['1.5']:
         return "1.3"
@@ -23,7 +23,7 @@ class Driver:
     def __str__(self) -> str:
         return f"WebDriver Chrome {self.__version_()}"
     
-    def __init__(self, hadless: bool = True) -> None:
+    def __init__(self, hadless: bool = False) -> None:
         self._start()
         self._hadlass = hadless
         self.logger = logging.getLogger(self.__str__())
